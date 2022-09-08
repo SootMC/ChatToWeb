@@ -12,14 +12,19 @@ public class HttpHandler {
     public static void makeRequest(String message, String name, String uuid, String server) {
         RequestModel requestModel = new RequestModel(message, name, uuid);
         Gson gson = new Gson();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(ChatToWeb.url + "/api/servers/" + server + "/message"))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(requestModel)))
-                .build();
 
-        HttpClient.newBuilder()
-                .build()
-                .sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(ChatToWeb.url + "/api/servers/" + server + "/message"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(requestModel)))
+                    .build();
+
+            HttpClient.newBuilder()
+                    .build()
+                    .sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
