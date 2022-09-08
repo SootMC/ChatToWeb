@@ -1,0 +1,4 @@
+name: ChatToWeb
+version: '${project.version}'
+main: net.sootmc.chattoweb.ChatToWeb
+description: A plugin to take any chat messages and make a https request
