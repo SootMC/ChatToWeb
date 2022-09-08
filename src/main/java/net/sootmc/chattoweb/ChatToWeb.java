@@ -10,10 +10,14 @@ import java.io.*;
 public final class ChatToWeb extends Plugin {
 
     public static String url;
+    public static ChatToWeb instance;
 
     @Override
     public void onEnable() {
         this.getProxy().getPluginManager().registerListener(this, new ChatListener());
+        this.getProxy().getPluginManager().registerCommand(this, new CommandHandler());
+        instance = this;
+
 
         if (!getDataFolder().exists()) {
             getLogger().info("Created config folder: " + getDataFolder().mkdir());
@@ -54,5 +58,14 @@ public final class ChatToWeb extends Plugin {
     @Override
     public void onDisable() {
         getLogger().info("ChatToWeb has been disabled!");
+    }
+
+    public void reloadConfig() {
+        try {
+            Configuration configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
+            url = configuration.getString("url");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
