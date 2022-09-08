@@ -15,7 +15,6 @@ public final class ChatToWeb extends Plugin {
     @Override
     public void onEnable() {
         this.getProxy().getPluginManager().registerListener(this, new ChatListener());
-        this.getProxy().getPluginManager().registerCommand(this, new CommandHandler());
         instance = this;
 
 

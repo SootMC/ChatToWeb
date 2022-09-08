@@ -6,7 +6,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Command;
 
 public class CommandHandler extends Command {
-    public CommandHandler(String name, String permission, String... aliases) {
+    public CommandHandler(String name, String permission, String aliases) {
         super(name, permission, aliases);
     }
 
