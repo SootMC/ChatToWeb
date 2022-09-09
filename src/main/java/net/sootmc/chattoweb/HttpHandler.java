@@ -24,7 +24,7 @@ public class HttpHandler {
                     .build()
                     .sendAsync(request, HttpResponse.BodyHandlers.ofString());
         } catch (Exception e) {
-            e.printStackTrace();
+            
         }
     }
 }
