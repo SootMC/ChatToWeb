@@ -10,6 +10,7 @@ import java.io.*;
 public final class ChatToWeb extends Plugin {
 
     public static String url;
+    public static String token;
     public static ChatToWeb instance;
 
     @Override
@@ -47,6 +48,7 @@ public final class ChatToWeb extends Plugin {
         try {
             Configuration configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
             url = configuration.getString("url");
+            token = configuration.getString("token");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -63,6 +65,7 @@ public final class ChatToWeb extends Plugin {
         try {
             Configuration configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
             url = configuration.getString("url");
+            token = configuration.getString("token");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
