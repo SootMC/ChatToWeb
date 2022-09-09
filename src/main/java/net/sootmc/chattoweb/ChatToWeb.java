@@ -18,6 +18,7 @@ public final class ChatToWeb extends Plugin {
         this.getProxy().getPluginManager().registerListener(this, new ChatListener());
         instance = this;
 
+        this.getProxy().getPluginManager().registerCommand(this, new CommandHandler("chattoweb", "chattoweb.reload", "ctw"));
 
         if (!getDataFolder().exists()) {
             getLogger().info("Created config folder: " + getDataFolder().mkdir());
