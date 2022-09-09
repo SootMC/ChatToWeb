@@ -1,7 +1,10 @@
 package net.sootmc.chattoweb;
 
+import com.google.gson.annotations.SerializedName;
+
 public class RequestModel {
     private String message;
+    @SerializedName("username")
     private String name;
     private String uuid;
 
