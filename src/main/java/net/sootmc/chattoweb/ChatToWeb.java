@@ -65,6 +65,7 @@ public final class ChatToWeb extends Plugin {
         try {
             Configuration configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
             url = configuration.getString("url");
+            token = configuration.getString("token");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
