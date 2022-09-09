@@ -16,7 +16,7 @@ public class HttpHandler {
         try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(ChatToWeb.url + "/api/servers/" + server + "/message"))
-                    .header("Content-Type", "application/json")
+                    .header("Authorization", ChatToWeb.token)
                     .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(requestModel)))
                     .build();
 
