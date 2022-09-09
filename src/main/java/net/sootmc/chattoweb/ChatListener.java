@@ -14,7 +14,8 @@ public class ChatListener implements Listener {
 
             String message = event.getMessage();
 
-            if(message.startsWith("/")) { return; }
+            if(message.startsWith("/")) 
+                return;
 
             String name = player.getName();
             UUID uuid = player.getUniqueId();
