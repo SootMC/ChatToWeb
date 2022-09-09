@@ -6,6 +6,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.concurrent.ExecutionException;
 
 public class HttpHandler {
 
@@ -16,6 +17,7 @@ public class HttpHandler {
         try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(ChatToWeb.url + "/api/servers/" + server + "/message"))
+                    .header("Content-Type", "application/json")
                     .header("Authorization", "Bearer " + ChatToWeb.token)
                     .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(requestModel)))
                     .build();
@@ -24,7 +26,7 @@ public class HttpHandler {
                     .build()
                     .sendAsync(request, HttpResponse.BodyHandlers.ofString());
         } catch (Exception e) {
-            
+
         }
     }
 }
