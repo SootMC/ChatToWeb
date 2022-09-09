@@ -11,7 +11,12 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(ChatEvent event) {
         if(event.getSender() instanceof ProxiedPlayer player) {
+
             String message = event.getMessage();
+
+            if(message.startsWith("/")) 
+                return;
+
             String name = player.getName();
             UUID uuid = player.getUniqueId();
             String server = player.getServer().getInfo().getName();
