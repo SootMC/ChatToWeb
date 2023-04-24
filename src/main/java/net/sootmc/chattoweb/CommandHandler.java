@@ -16,7 +16,6 @@ public class CommandHandler extends Command {
 
         if (args.length == 0) {
             sender.sendMessage(new TextComponent(ChatColor.RED + "Invalid Usage. Correct Usage: /chattoweb reload"));
-            return;
         } else if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             ChatToWeb.instance.reloadConfig();
             sender.sendMessage(new TextComponent(ChatColor.GREEN + "Config reloaded!"));

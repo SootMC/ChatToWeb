@@ -4,6 +4,8 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
+import net.sootmc.chattoweb.Listeners.ChatListener;
+import net.sootmc.chattoweb.Listeners.ConnectionListener;
 
 import java.io.*;
 
@@ -16,6 +18,7 @@ public final class ChatToWeb extends Plugin {
     @Override
     public void onEnable() {
         this.getProxy().getPluginManager().registerListener(this, new ChatListener());
+        this.getProxy().getPluginManager().registerListener(this, new ConnectionListener());
         instance = this;
 
         this.getProxy().getPluginManager().registerCommand(this, new CommandHandler("chattoweb", "chattoweb.reload", "ctw"));
